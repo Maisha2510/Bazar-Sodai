@@ -1,0 +1,88 @@
+﻿@model BazarSodai.Models.Product
+
+@{
+    ViewBag.Title = "remove";
+}
+
+<h2>remove</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductsID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductsID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProducsName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProducsName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductsPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductsPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductsWeight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductsWeight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductsImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductsImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductsStock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductsStock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubCategoryID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubCategoryID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete"  class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Home")
+        </div>
+    }
+</div>

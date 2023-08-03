@@ -1,0 +1,517 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Biolife - Organic Food</title>
+    <link href="https://fonts.googleapis.com/css?family=Cairo:400,600,700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400i,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&amp;display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="~/images/favicon.png" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/animate.min.css">
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/nice-select.css">
+    <link rel="stylesheet" href="~/Content/slick.min.css">
+    <link rel="stylesheet" href="~/Content/style.css">
+    <link rel="stylesheet" href="~/Content/main-color.css">
+</head>
+<body class="biolife-body">
+
+    <!-- Preloader -->
+    <div id="biof-loading">
+        <div class="biof-loading-center">
+            <div class="biof-loading-center-absolute">
+                <div class="dot dot-one"></div>
+                <div class="dot dot-two"></div>
+                <div class="dot dot-three"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header id="header" class="header-area style-01 layout-04">
+        <div class="header-top bg-main hidden-xs">
+            <div class="container">
+                <div class="top-bar left">
+                    <ul class="horizontal-menu">
+                        <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>BazarSodai@gmail.com</a></li>
+                        <li><a href="#">Free Shipping for all Order of $99</a></li>
+                    </ul>
+                </div>
+                <div class="top-bar right">
+                    <ul class="social-list">
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                    </ul>
+                    <ul class="horizontal-menu">
+
+                        <li class="horz-menu-item lang">
+                            <select name="language">
+                                <option value="en" selected>English (USD)</option>
+                                <option value="ger">Germany (GBP)</option>
+
+                            </select>
+                        </li>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="horz-menu-item">
+                                <select name="user-auth" onchange="javascript:handleSelect(this)">
+                                    <option value="~/Home/login" selected>
+                                        @try
+                                        {
+                                            @User.Identity.Name
+                                        }
+                                        catch (Exception error)
+                                        {
+                                            Console.WriteLine("User auth error" + error);
+                                        }
+                                    </option>
+                                    <option value="~/Home/login">Logout</option>
+
+                                </select>
+                                <script type="text/javascript">
+                                    function handleSelect(elm) {
+                                        window.location = elm.value;
+                                    }
+                                </script>
+
+
+                            </li>
+
+                        }
+                        else
+                        {
+                            <li>
+                                <a href="login" class="login-link">
+                                    <i class="biolife-icon icon-login">
+                                    </i>Login/Register
+                                </a>
+                            </li>
+                        }
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-middle biolife-sticky-object ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-2 col-md-6 col-xs-6">
+                        <a href="~/Home/Index"><img src="~/images/bazarsodailogo.png" alt="biolife logo" width="280" height="36"></a>
+                    </div>
+                    <div class="col-lg-6 col-md-7 hidden-sm hidden-xs">
+                        <div class="primary-menu">
+                            <ul class="menu biolife-menu clone-main-menu clone-primary-menu" id="primary-menu" data-menuname="main menu">
+                                <li class="menu-item"><a href="~/Home/Index">Home</a></li>
+                                <li class="menu-item menu-item-has-children has-megamenu">
+                                    <a href="#" class="menu-name" data-title="Shop">Shop</a>
+                                    <div class="wrap-megamenu lg-width-900 md-width-750">
+                                        <div class="mega-content">
+                                            <div class="col-lg-3 col-md-3 col-xs-12 md-margin-bottom-0 xs-margin-bottom-25">
+                                                <div class="wrap-custom-menu vertical-menu">
+                                                    <h4 class="menu-title">Fresh Berries</h4>
+                                                    <ul class="menu">
+                                                        <li><a href="#">Fruit & Nut Gifts</a></li>
+                                                        <li><a href="#">Mixed Fruits</a></li>
+                                                        <li><a href="#">Oranges</a></li>
+                                                        <li><a href="#">Bananas & Plantains</a></li>
+                                                        <li><a href="#">Fresh Gala Apples</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-xs-12 md-margin-bottom-0 xs-margin-bottom-25">
+                                                <div class="wrap-custom-menu vertical-menu">
+                                                    <h4 class="menu-title">Vegetables</h4>
+                                                    <ul class="menu">
+                                                        <li><a href="#">Berries</a></li>
+                                                        <li><a href="#">Pears</a></li>
+                                                        <li><a href="#">Chili Peppers</a></li>
+                                                        <li><a href="#">Fresh Avocado</a></li>
+                                                        <li><a href="#">Grapes</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-xs-12 md-margin-bottom-0 xs-margin-bottom-25">
+                                                <div class="wrap-custom-menu vertical-menu ">
+                                                    <h4 class="menu-title">Fresh Fruits</h4>
+                                                    <ul class="menu">
+                                                        <li><a href="#">Basket of apples</a></li>
+                                                        <li><a href="#">Strawberry</a></li>
+                                                        <li><a href="#">Blueberry</a></li>
+                                                        <li><a href="#">Orange</a></li>
+                                                        <li><a href="#">Pineapple</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-xs-12 md-margin-bottom-0 xs-margin-bottom-25">
+                                                <div class="wrap-custom-menu vertical-menu">
+                                                    <h4 class="menu-title">Featured Products</h4>
+                                                    <ul class="menu">
+                                                        <li><a href="#">Coffee Creamers</a></li>
+                                                        <li><a href="#">Mayonnaise</a></li>
+                                                        <li><a href="#">Almond Milk</a></li>
+                                                        <li><a href="#">Fruit Jam</a></li>
+                                                        <li><a href="#">Beverages</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+
+
+                                <li class="menu-item"><a href="~/Home/Contact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-md-6 col-xs-6">
+                        <div class="biolife-cart-info">
+
+                            <div class="wishlist-block hidden-sm hidden-xs">
+                                <a href="../Home/OrderHistory" class="link-to">
+                                    <span class="icon-qty-combine">
+                                        <i class="icon-clock biolife-icon"></i>
+
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="wishlist-block hidden-sm hidden-xs">
+                                <a href="../Home/Cart" class="link-to">
+                                    <span class="icon-qty-combine">
+                                        <i class="icon-cart-mini biolife-icon"></i>
+
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="wishlist-block hidden-sm hidden-xs">
+                                <a href="../Home/Checkout" class="link-to">
+                                    <span class="icon-qty-combine">
+                                        <i class="icon-schedule biolife-icon"></i>
+
+                                    </span>
+                                </a>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+    </header>
+    <!--Hero Section-->
+    <div class="hero-section hero-background">
+        <h1 class="page-title">Organic Fruits</h1>
+    </div>
+
+    <!--Navigation section-->
+    <div class="container">
+        <nav class="biolife-nav">
+            <ul>
+                <li class="nav-item"><a href="index-2.html" class="permal-link">Home</a></li>
+                <li class="nav-item"><span class="current-page">About us</span></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="page-contain about-us">
+
+        <!-- Main content -->
+        <div id="main-content" class="main-content">
+
+            <div class="welcome-us-block">
+                <div class="container">
+                    <h4 class="title">Welcome to Bazar Sodai!</h4>
+                    <div class="text-wraper">
+                        <p class="text-info">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur,</p>
+                        <p class="qt-text">“There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.”</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="why-choose-us-block">
+                <div class="container">
+                    <h4 class="box-title">Why Choose us</h4>
+                    <b class="subtitle">Natural food is taken from the world's most modern farms with strict safety cycles</b>
+                    <div class="showcase">
+                        <div class="sc-child sc-left-position">
+                            <ul class="sc-list">
+                                <li>
+                                    <div class="sc-element color-01">
+                                        <span class="biolife-icon icon-fresh-drink"></span>
+                                        <div class="txt-content">
+                                            <span class="number">01</span>
+                                            <b class="title">Always Fresh</b>
+                                            <p class="desc">Natural products are kept in the best condition to ensure always fresh</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sc-element color-02">
+                                        <span class="biolife-icon icon-healthy-about"></span>
+                                        <div class="txt-content">
+                                            <span class="number">02</span>
+                                            <b class="title">Overall Healthy</b>
+                                            <p class="desc">Natural products are kept in the best condition to ensure always fresh</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sc-element color-03">
+                                        <span class="biolife-icon icon-green-safety"></span>
+                                        <div class="txt-content">
+                                            <span class="number">03</span>
+                                            <b class="title">Encironmental Safety</b>
+                                            <p class="desc">Natural products are kept in the best condition to ensure always fresh</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="sc-child sc-center-position">
+                            <figure><img src="~/images/about-us/bn04.jpg" alt="" width="622" height="656"></figure>
+                        </div>
+                        <div class="sc-child sc-right-position">
+                            <ul class="sc-list">
+                                <li>
+                                    <div class="sc-element color-04">
+                                        <span class="biolife-icon icon-capacity-about"></span>
+                                        <div class="txt-content">
+                                            <span class="number">04</span>
+                                            <b class="title">Antioxidant Capacity</b>
+                                            <p class="desc">Natural products are kept in the best condition to ensure always fresh</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sc-element color-05">
+                                        <span class="biolife-icon icon-arteries-about"></span>
+                                        <div class="txt-content">
+                                            <span class="number">05</span>
+                                            <b class="title">Good For Arteries</b>
+                                            <p class="desc">Natural products are kept in the best condition to ensure always fresh</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sc-element color-06">
+                                        <span class="biolife-icon icon-title"></span>
+                                        <div class="txt-content">
+                                            <span class="number">06</span>
+                                            <b class="title">Quality Standards</b>
+                                            <p class="desc">Natural products are kept in the best condition to ensure always fresh</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="footer" class="footer layout-03">
+        <div class="footer-content background-footer-03">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-9">
+                        <section class="footer-item">
+                            <a href="home-04-light" class="logo footer-logo"><img src="~/images/bazarsodailogo.png" alt="biolife logo" width="135" height="36"></a>
+                            <div class="footer-phone-info">
+                                <i class="biolife-icon icon-head-phone"></i>
+                                <p class="r-info">
+                                    <span>Got Questions ?</span>
+                                    <span>(700)  9001-1909  (900) 689 -66</span>
+                                </p>
+                            </div>
+
+                        </section>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 md-margin-top-5px sm-margin-top-50px xs-margin-top-40px">
+                        <section class="footer-item">
+                            <h3 class="section-title">Useful Links</h3>
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-6 col-xs-6">
+                                    <div class="wrap-custom-menu vertical-menu-2">
+                                        <ul class="menu">
+                                            <li><a href="#">About Us</a></li>
+                                            <li><a href="#">About Our Shop</a></li>
+                                            <li><a href="#">Secure Shopping</a></li>
+                                            <li><a href="#">Delivery infomation</a></li>
+                                            <li><a href="#">Privacy Policy</a></li>
+                                            <li><a href="#">Our Sitemap</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-6 col-xs-6">
+                                    <div class="wrap-custom-menu vertical-menu-2">
+                                        <ul class="menu">
+                                            <li><a href="#">Who We Are</a></li>
+                                            <li><a href="#">Our Services</a></li>
+                                            <li><a href="#">Projects</a></li>
+                                            <li><a href="#">Contacts Us</a></li>
+                                            <li><a href="#">Innovation</a></li>
+                                            <li><a href="#">Testimonials</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 md-margin-top-5px sm-margin-top-50px xs-margin-top-40px">
+                        <section class="footer-item">
+                            <h3 class="section-title">Transport Offices</h3>
+                            <div class="contact-info-block footer-layout xs-padding-top-10px">
+                                <ul class="contact-lines">
+                                    <li>
+                                        <p class="info-item">
+                                            <i class="biolife-icon icon-location"></i>
+                                            <b class="desc">11 Mirpur, Dhaka, Bangladesh </b>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="info-item">
+                                            <i class="biolife-icon icon-phone"></i>
+                                            <b class="desc">Phone: (+880)1889958978</b>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="info-item">
+                                            <i class="biolife-icon icon-letter"></i>
+                                            <b class="desc">Email:  bazarsodai@gmail.com</b>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="info-item">
+                                            <i class="biolife-icon icon-clock"></i>
+                                            <b class="desc">Hours: 7 Days a week from 10:00 am</b>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="biolife-social inline">
+                                <ul class="socials">
+                                    <li><a href="#" title="twitter" class="socail-btn"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="#" title="facebook" class="socail-btn"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#" title="pinterest" class="socail-btn"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#" title="youtube" class="socail-btn"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                                    <li><a href="#" title="instagram" class="socail-btn"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="separator sm-margin-top-62px xs-margin-top-40px"></div>
+                    </div>
+
+                    <div class="col-lg-8 col-sm-6 col-xs-12">
+                        <div class="payment-methods">
+                            <ul>
+                                <li><a href="#" class="payment-link"><img src="~/images/card1.jpg" width="51" height="36" alt=""></a></li>
+                                <li><a href="#" class="payment-link"><img src="~/images/card2.jpg" width="51" height="36" alt=""></a></li>
+                                <li><a href="#" class="payment-link"><img src="~/images/card3.jpg" width="51" height="36" alt=""></a></li>
+                                <li><a href="#" class="payment-link"><img src="~/images/card4.jpg" width="51" height="36" alt=""></a></li>
+                                <li><a href="#" class="payment-link"><img src="~/images/card5.jpg" width="51" height="36" alt=""></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--Footer For Mobile-->
+    <div class="mobile-footer">
+        <div class="mobile-footer-inner">
+            <div class="mobile-block block-menu-main">
+                <a class="menu-bar menu-toggle btn-toggle" data-object="open-mobile-menu" href="javascript:void(0)">
+                    <span class="fa fa-bars"></span>
+                    <span class="text">Menu</span>
+                </a>
+            </div>
+            <div class="mobile-block block-sidebar">
+                <a class="menu-bar filter-toggle btn-toggle" data-object="open-mobile-filter" href="javascript:void(0)">
+                    <i class="fa fa-sliders" aria-hidden="true"></i>
+                    <span class="text">Sidebar</span>
+                </a>
+            </div>
+            <div class="mobile-block block-minicart">
+                <a class="link-to-cart" href="#">
+                    <span class="fa fa-shopping-bag" aria-hidden="true"></span>
+                    <span class="text">Cart</span>
+                </a>
+            </div>
+            <div class="mobile-block block-global">
+                <a class="menu-bar myaccount-toggle btn-toggle" data-object="global-panel-opened" href="javascript:void(0)">
+                    <span class="fa fa-globe"></span>
+                    <span class="text">Global</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-block-global">
+        <div class="biolife-mobile-panels">
+            <span class="biolife-current-panel-title">Global</span>
+            <a class="biolife-close-btn" data-object="global-panel-opened" href="#">&times;</a>
+        </div>
+        <div class="block-global-contain">
+            <div class="glb-item my-account">
+                <b class="title">My Account</b>
+                <ul class="list">
+                    <li class="list-item"><a href="#">Login/register</a></li>
+                    <li class="list-item"><a href="#">Wishlist <span class="index">(8)</span></a></li>
+                    <li class="list-item"><a href="#">Checkout</a></li>
+                </ul>
+            </div>
+            <div class="glb-item currency">
+                <b class="title">Currency</b>
+                <ul class="list">
+                    <li class="list-item"><a href="#">€ EUR (Euro)</a></li>
+                    <li class="list-item"><a href="#">$ USD (Dollar)</a></li>
+                    <li class="list-item"><a href="#">£ GBP (Pound)</a></li>
+                    <li class="list-item"><a href="#">¥ JPY (Yen)</a></li>
+                </ul>
+            </div>
+            <div class="glb-item languages">
+                <b class="title">Language</b>
+                <ul class="list inline">
+                    <li class="list-item"><a href="#"><img src="~/images/languages/us.jpg" alt="flag" width="24" height="18"></a></li>
+                    <li class="list-item"><a href="#"><img src="~/images/languages/fr.jpg" alt="flag" width="24" height="18"></a></li>
+                    <li class="list-item"><a href="#"><img src="~/images/languages/ger.jpg" alt="flag" width="24" height="18"></a></li>
+                    <li class="list-item"><a href="#"><img src="~/images/languages/jap.jpg" alt="flag" width="24" height="18"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Top Button -->
+    <a class="btn-scroll-top"><i class="biolife-icon icon-left-arrow"></i></a>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.countdown.min.js"></script>
+    <script src="~/Scripts/jquery.nice-select.min.js"></script>
+    <script src="~/Scripts/jquery.nicescroll.min.js"></script>
+    <script src="~/Scripts/slick.min.js"></script>
+    <script src="~/Scripts/biolife.framework.js"></script>
+    <script src="~/Scripts/functions.js"></script>
+</body>
+
+</html>
