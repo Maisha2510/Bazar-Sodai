@@ -94,49 +94,24 @@ we are quite satisfied.
 • OderDetails is not created
 • Not normalized
 
-## 4 Contribution
-** Maisha Musarrat Nabila(ID: 190104058)**
-• User Login
-• User Registration
-• Authentication in both User and Admin Panel
-• Overall Ui
-
-**Debopriya Deb Roy(ID: 190104065)**
-• Project supervision
-• Database maintainance and bug management
-• Review feature added
-• Cart page, Checkout page data fetch and completed
-• Hoempage, Category, Subcategory, Product Details data added and fetched
-• Routing from different pages
-• Database Designed and Created
-• Ui Fixes and small improvements and consistancy maintainance
-
-**Israt Moyeen Noumi(ID: 190104070)**
-• Admin panel Database Designed and implemented
-• Add Category, View Category page implementd with Add and Delete
-• Add SubCategory, View SubCategory page implementd with Add and Delete
-• Add Products, View Products page implementd with Add and Delete
-• Admin Panel Design
-• Admin panel Create Acount, Login implementd
-
 ## 5 Conclusion
 Technology has made significant progress over the years to provide consumers a better online shopping experience
 and will continue to do so for years to come. With the rapid growth of products and brands, people have
 speculated that online shopping will overtake in-store shopping.The availability of online shopping has produced
 a more educated consumer that can shop around with relative ease without having to spend a large amount of
-time. At the end, our system has been make a win-win situation for both consumer and sellers.
+time. At the end, our system has created a win-win situation for both consumer and sellers.
 ### 5.1 Limitations
-• Admin cannot edit the data
-• Searching products feature not implemented
+• The administrator cannot edit the data
+• The search for products feature not implemented
 • Numerous exceptions not handled
-• Add to favourites not implemented
+• Add to favourites is not implemented
 5CSE3200: Software Development-V Project Report
 ### 5.2 Future Work
 • Sales Management
-• Delivery Management with different payment method
+• Delivery Management with different payment methods
 • Notification system for users
 ### 5.3 Project Link
-Github : https://github.com/DDR13GIT/BazarSodai
+Github : https://github.com/Maisha2510/Bazar-Sodai
 ### 5.4 Ending Remarks
 Software development projects always help students to gain some exciting knowledge about new software development structures. This software development project has helped us to learn MVC framework, specially
 bindings between Model, view and controller. We hope this knowledge will help us in future projects.
